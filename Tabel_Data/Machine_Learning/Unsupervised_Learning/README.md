@@ -1,4 +1,4 @@
-# PCA.ipynb  
-主成分分析  
-# t_SNE.ipynb  
-t-SNE
+# 主成分分析
+ファイル PCA.ipynb
+# t-SNE  
+ファイル t_SBE.ipynb

@@ -4,5 +4,5 @@
 * t-SNE  
 ファイル t_SBE.ipynb  
 説明
-* アソシエーション分析
+* アソシエーション分析  
 ファイル　association_analysis.ipynb

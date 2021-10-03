@@ -9,3 +9,9 @@
 ## 組み合わせ探索  
 * アソシエーション分析  
 ファイル　association_analysis.ipynb
+
+## クラスタリング
+* k-means法  
+ファイル k_means.ipynb
+* スペクトラルクラスタリング  
+ファイル　　SpectralClustering.ipynb

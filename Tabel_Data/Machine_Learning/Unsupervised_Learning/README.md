@@ -15,3 +15,7 @@
 ファイル k_means.ipynb
 * スペクトラルクラスタリング  
 ファイル　　SpectralClustering.ipynb
+
+## 異常検知 
+* Isolation Forest
+ファイル Isolation_Forest.ipynb

@@ -11,6 +11,11 @@
 ファイル　association_analysis.ipynb
 
 ## クラスタリング
+### 階層クラスタリング
+* 階層クラスタリング
+ファイル hierarchical_clustering  
+
+### 非階層クラスタリング
 * k-means法  
 ファイル k_means.ipynb
 * スペクトラルクラスタリング  

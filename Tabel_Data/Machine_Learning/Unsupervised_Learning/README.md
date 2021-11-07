@@ -12,7 +12,7 @@
 
 ## クラスタリング
 ### 階層クラスタリング
-* 階層クラスタリング
+* 階層クラスタリング  
 ファイル hierarchical_clustering  
 
 ### 非階層クラスタリング
@@ -22,5 +22,5 @@
 ファイル　　SpectralClustering.ipynb
 
 ## 異常検知 
-* Isolation Forest. 
+* Isolation Forest  
 ファイル Isolation_Forest.ipynb

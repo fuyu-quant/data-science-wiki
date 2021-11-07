@@ -17,5 +17,5 @@
 ファイル　　SpectralClustering.ipynb
 
 ## 異常検知 
-* Isolation Forest 
+* Isolation Forest. 
 ファイル Isolation_Forest.ipynb

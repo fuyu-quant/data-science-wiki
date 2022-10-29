@@ -1,0 +1,1 @@
+docker compose -f /Users/tanakatouma/Documents/Docker/jupyterlab/docker-compose.yml down -v

@@ -1,11 +1,17 @@
 # Multi Modal モデル
 
-## text&image
-* MMBT (実装中)  
-ViLBERTより精度が高いらしい  
-マルチモーダルな事前学習なしに，マルチモーダルな事前学習をおこなったモデルと同等の精度を出力できる
+## MMBT (実装中)  
+* textとimagesを入力    
+* マルチモーダルな事前学習なしに，マルチモーダルな事前学習をおこなったモデルと同等の精度を出力できる
+
+## CLIP (実装中)  
+* 意味が近い画像とテキスト同士が近いベクトルになるように学習  
+* 画像とテキストの埋め込み表現を取得  
+* テキストと類似の画像を検索
+
+## その他のモデル
 * ViLBERT（Lu et al., 2019）
 * VisualBERT（Li et al., 2019）
 * LXMERT（Tan andBansal, 2019）
 * VL-BERT（Su et al., 2019）
-* Vision TransformerとBERTを用いた漫画のマルチモーダル識別
+

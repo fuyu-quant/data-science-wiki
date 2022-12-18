@@ -10,5 +10,8 @@
 * DeepAR
 * Temporal Fusion Transformer
 
+## AutoML
+* AutoGluon-TimeSeriesPredictor
+
 ## その他
 * リザーバ計算

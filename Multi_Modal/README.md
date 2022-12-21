@@ -15,3 +15,11 @@
 * LXMERT（Tan andBansal, 2019）
 * VL-BERT（Su et al., 2019）
 
+# タスク
+## セグメンテーションから画像生成
+* GauGAN(https://blogs.nvidia.co.jp/2022/03/31/what-is-gaugan-ai-art-demo/)
+* SpaText(https://omriavrahami.com/spatext/)
+
+## 画像とテキストの対称学習
+* CLIP
+* CLOUB

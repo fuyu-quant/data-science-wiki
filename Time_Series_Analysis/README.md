@@ -1,12 +1,14 @@
 # 時系列分析
-## 統計モデル
+## 時系列モデル
 * SARIMA
 * SARIMAX
 
-## 勾配ブースティング
+## 状態空間モデル
+
+## 機械学習モデル
 * LightGBM
 
-## ディープラーニング
+## NNモデル
 * DeepAR
 * Temporal Fusion Transformer
 

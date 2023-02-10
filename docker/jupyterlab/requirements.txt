@@ -1,0 +1,10 @@
+numpy 
+pandas 
+scipy 
+scikit-learn 
+pycaret 
+matplotlib 
+japanize_matplotlib
+xgboost 
+lightgbm
+   

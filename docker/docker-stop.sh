@@ -1,1 +1,1 @@
-docker compose -f /Users/tanakatouma/Documents/Docker/jupyterlab/docker-compose.yml down -v
+docker compose -f /Users/tanakatouma/vscode/Data_Science/docker/docker-compose.yml down -v

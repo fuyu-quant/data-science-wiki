@@ -8,5 +8,5 @@ services:
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
-      - /Users/tanakatouma/vscode/data-science-1/:/home/datascience/
+      - /Users/tanakatouma/vscode/data-science/:/home/datascience/
     command: start-notebook.sh --NotebookApp.token=''

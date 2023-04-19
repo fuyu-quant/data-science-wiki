@@ -1,12 +1,12 @@
 version: '3.9'
 services:
   notebook:
-    container_name: langchain
+    container_name: datascience
     image: jupyter/datascience-notebook
     ports:
-      - '8888:8888'
+      - '8000:8000'
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
-      - /Users/tanakatouma/vscode/langchain/:/home/jovyan/langchain/
+      - /Users/tanakatouma/vscode/data-science-1/:/home/datascience/
     command: start-notebook.sh --NotebookApp.token=''

@@ -1,12 +1,11 @@
 version: '3.9'
+
 services:
-  notebook:
-    container_name: datascience
+  ibl:
+    container_name: dswiki
     image: jupyter/datascience-notebook
-    ports:
-      - '8000:8000'
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
-      - /Users/tanakatouma/vscode/data-science/:/home/datascience/
+      - /Users/tanakatouma/vscode/IBLM/:/home/IBLM/
     command: start-notebook.sh --NotebookApp.token=''

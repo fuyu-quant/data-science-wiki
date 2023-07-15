@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "data-science-wiki"
+version = "0.1.0"
+description = ""
+authors = ["toma tanaka <ulti4929@gmail.com>"]
+readme = "README.md"
+packages = [{include = "data_science_wiki"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.0.3"
+ipykernel = "^6.24.0"
+jupytext = "^1.14.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

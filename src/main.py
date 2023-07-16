@@ -27,13 +27,13 @@ logging.basicConfig(
 
 def update_check():
     #result = subprocess.run(['ls'], capture_output=True)
-    result = subprocess.run(['git', 'diff', '--name-only', 'HEAD^'], capture_output=True, text=True)
+    changelog = subprocess.run(['git', 'diff', '--name-only', 'HEAD^'], capture_output=True, text=True)
+    logging.info(f'変更:{changelog}')
+    changelog = changelog.stdout.strip()#.decode('utf-8')
+    changelog_list = str(changelog).split("\n")
 
-    result = result.stdout.strip().decode('utf-8')
-    result = str(result).split("\n")
-
-    logging.info(result)
-    return result
+    logging.info(f'変更リスト:{changelog_list}')
+    return changelog_list
 
 
 def ipynb_to_html(ipynb_list):
@@ -45,6 +45,7 @@ def ipynb_to_html(ipynb_list):
                 file_path = main_path + ipynb_path
                 subprocess.run(['jupyter','nbconvert','--to','html',file_path], capture_output=True)
                 html_path = ipynb_path.replace('ipynb', 'html')
+                logging.info(f'作成ファイル:{html_path}')
                 html_list.append(html_path)
     return html_list
 
@@ -75,6 +76,6 @@ if __name__ == "__main__":
     ipynb_list = update_check()
 
     #ipynb_list = ['tabledata/clustering/t-means.ipynb']
-    ipynb_to_text(ipynb_list)
+    #ipynb_to_text(ipynb_list)
     html_list = ipynb_to_html(ipynb_list)
     s3_uploader(html_list)

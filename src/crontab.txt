@@ -1,1 +1,1 @@
-*/5 * * * * python /src/main.py
+*/5 * * * * ~/.cache/pypoetry/virtualenvs/data-science-wiki-274Wd7YI-py3.9/bin/python3 /home/ec2-user/data-science-wiki/src/main.py

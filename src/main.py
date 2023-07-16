@@ -5,7 +5,12 @@ import jupytext
 import boto3
 from dotenv import load_dotenv
 
-load_dotenv('../.env')
+
+home_path = os.environ['HOME']
+main_path = f'{home_path}/data-science-wiki/'
+
+load_dotenv(f'{main_path}/.env')
+
 
 s3 = boto3.client(
     's3',
@@ -13,8 +18,6 @@ s3 = boto3.client(
     aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
     )
 
-home_path = os.environ['HOME']
-main_path = f'{home_path}/data-science-wiki/'
 
 
 logging.basicConfig(
@@ -74,7 +77,6 @@ def ipynb_to_text(ipynb_list):
 
 if __name__ == "__main__":
     ipynb_list = update_check()
-
     #ipynb_list = ['tabledata/clustering/t-means.ipynb']
     #ipynb_to_text(ipynb_list)
     html_list = ipynb_to_html(ipynb_list)

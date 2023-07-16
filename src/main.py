@@ -1,6 +1,7 @@
 import os
 import logging
 import subprocess
+import jupytext
 import boto3
 from dotenv import load_dotenv
 
@@ -57,9 +58,21 @@ def s3_uploader(html_list):
     return
 
 
-if __name__ == "__main__":
-    #ipynb_list = update_check()
+def ipynb_to_text(ipynb_list):
+    for ipynb_path in ipynb_list:
+        file_path = main_path + ipynb_path
+        text = jupytext.read(file_path)
+        title = text['cells'][0]['source'].replace(' ', '').replace('#', '')
+        description = text['cells'][1]['source']
+        logging.info(title)
+        logging.info(description)
+    return 
 
-    ipynb_list = ['tabledata/clustering/t-means.ipynb']
+
+if __name__ == "__main__":
+    ipynb_list = update_check()
+
+    #ipynb_list = ['tabledata/clustering/t-means.ipynb']
+    ipynb_to_text(ipynb_list)
     html_list = ipynb_to_html(ipynb_list)
     s3_uploader(html_list)

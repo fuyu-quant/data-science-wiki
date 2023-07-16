@@ -38,12 +38,14 @@ def update_check():
 
 def ipynb_to_html(ipynb_list):
     html_list = []
+    dir_list = ['causalanalysis','cv','graph','multimodal','nlp','recommendation','rl','tabledata','timeseriesanalysis']
     for ipynb_path in ipynb_list:
-        if 'ipynb' in ipynb_path:
-            file_path = main_path + ipynb_path
-            subprocess.run(['jupyter','nbconvert','--to','html',file_path], capture_output=True)
-            html_path = ipynb_path.replace('ipynb', 'html')
-            html_list.append(html_path)
+        for dir_name in dir_list:
+            if ('ipynb' in ipynb_path) and (dir_name in ipynb_path):
+                file_path = main_path + ipynb_path
+                subprocess.run(['jupyter','nbconvert','--to','html',file_path], capture_output=True)
+                html_path = ipynb_path.replace('ipynb', 'html')
+                html_list.append(html_path)
     return html_list
 
 

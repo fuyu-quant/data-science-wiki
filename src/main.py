@@ -26,7 +26,7 @@ logging.basicConfig(
 
 
 def update_check():
-    #result = subprocess.run(['ls'], capture_output=True)
+    subprocess.run(['git', 'pull', 'origin', 'main'], capture_output=True, text=True)
     changelog = subprocess.run(['git', 'diff', '--name-only', 'HEAD^'], capture_output=True, text=True)
     logging.info(f'変更:{changelog}')
     changelog = changelog.stdout.strip()#.decode('utf-8')

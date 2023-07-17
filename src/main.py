@@ -29,7 +29,9 @@ logging.basicConfig(
 
 
 def update_check():
-    subprocess.run(['git', 'pull', 'origin', 'main'], capture_output=True, text=True)
+    os.chdir(main_path)
+    result = subprocess.run(['git', 'pull', 'origin', 'main'], capture_output=True, text=True)
+    logging.info(f'git pull:{result}')
     changelog = subprocess.run(['git', 'diff', '--name-only', 'HEAD^'], capture_output=True, text=True)
     logging.info(f'変更:{changelog}')
     changelog = changelog.stdout.strip()#.decode('utf-8')
@@ -40,16 +42,23 @@ def update_check():
 
 
 def ipynb_to_html(ipynb_list):
+    os.chdir(main_path)
     html_list = []
     dir_list = ['causalanalysis','cv','graph','multimodal','nlp','recommendation','rl','tabledata','timeseriesanalysis']
+    # jupyterコマンドのパス
+    jupyter = f'{home_path}/.cache/pypoetry/virtualenvs/data-science-wiki-274Wd7YI-py3.9/bin/jupyter'
     for ipynb_path in ipynb_list:
         for dir_name in dir_list:
             if ('ipynb' in ipynb_path) and (dir_name in ipynb_path):
                 file_path = main_path + ipynb_path
-                subprocess.run(['jupyter','nbconvert','--to','html',file_path], capture_output=True)
+                logging.info(f'file path:{file_path}')
+                html_result = subprocess.run([jupyter,'nbconvert','--to','html', file_path], capture_output=True, text=True)
+                logging.info(f'変換結果:{html_result}')
                 html_path = ipynb_path.replace('ipynb', 'html')
                 logging.info(f'作成ファイル:{html_path}')
                 html_list.append(html_path)
+
+    logging.info(f'htmlリスト:{html_list}')
     return html_list
 
 
@@ -76,8 +85,9 @@ def ipynb_to_text(ipynb_list):
 
 
 if __name__ == "__main__":
+    # gitのコマンドを実行する上で必要
+    os.chdir(main_path)
     ipynb_list = update_check()
-    #ipynb_list = ['tabledata/clustering/t-means.ipynb']
     #ipynb_to_text(ipynb_list)
     html_list = ipynb_to_html(ipynb_list)
     s3_uploader(html_list)

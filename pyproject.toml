@@ -29,6 +29,7 @@ isort = "^5.12.0"
 torch = "^2.0.1"
 transformers = "^4.31.0"
 sentencepiece = "^0.1.99"
+giotto-tda = "^0.6.0"
 
 
 [build-system]

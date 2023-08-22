@@ -861,6 +861,76 @@ files = [
 ]
 
 [[package]]
+name = "giotto-ph"
+version = "0.2.2"
+description = "High performance tool for Persistent Homology computations."
+optional = false
+python-versions = "*"
+files = [
+    {file = "giotto_ph-0.2.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:fb41b484775095c9de5ab28b20844aab3cfe942a4a2fee079141e33a5e3bbe80"},
+    {file = "giotto_ph-0.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b970dc0cb1b49848f28de5f860f9431af28e723f623a19f93fa36ea889e66551"},
+    {file = "giotto_ph-0.2.2-cp310-cp310-win_amd64.whl", hash = "sha256:63a02ac472d6013ca87f4e5c54cf7773e60d67272a6aac6aa8d4d06e504a14b1"},
+    {file = "giotto_ph-0.2.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:6c706aa06a19b85311caa49f3009d00f280d639fa5a560670b4099808c010099"},
+    {file = "giotto_ph-0.2.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:870a4e3d096950250356722cadb2906f631b981682d517b87552ed28bedf3858"},
+    {file = "giotto_ph-0.2.2-cp37-cp37m-win_amd64.whl", hash = "sha256:66eb4988c9303c9e1ed05101f925309b105c94ad03bfc0c610e78666ee84349d"},
+    {file = "giotto_ph-0.2.2-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:25e0eb6aca72a5a6c58a0f79a4ee8bda0cc502ab5af9a2d9c5bf988778b8b544"},
+    {file = "giotto_ph-0.2.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bc6646b00c0b91709b5d208eaae8b84a264bf53d66714ded9a131d809a4c2da7"},
+    {file = "giotto_ph-0.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:3e92b37c6469a3b10417c59b6ff464c99facfd20356b06c1c7b92e6e1ae9b4dc"},
+    {file = "giotto_ph-0.2.2-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:3b5ef5ad7b518b3e710ab4ebde8f907f21e3432bb41cf98ca68a49f9d6e9f93c"},
+    {file = "giotto_ph-0.2.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:be88b5a9f01fda76a5b2a8170ff971152d2479b74e43c9aac8eb8e9de055752b"},
+    {file = "giotto_ph-0.2.2-cp39-cp39-win_amd64.whl", hash = "sha256:1ebd2e821955ffffc464ed3285b8feae1f8d168563e6d30cf45ab93cece359c5"},
+]
+
+[package.dependencies]
+numpy = ">=1.19.1"
+scikit-learn = ">=0.23.1"
+scipy = ">=1.5.0"
+
+[package.extras]
+dev = ["flake8", "hypothesis", "jupyter-contrib-nbextensions", "nbconvert", "numpydoc", "openml", "pandas", "pytest", "pytest-azurepipelines", "pytest-benchmark", "pytest-cov", "sphinx", "sphinx-issues", "sphinx-rtd-theme"]
+doc = ["nbconvert", "numpydoc", "openml", "sphinx", "sphinx-issues", "sphinx-rtd-theme"]
+examples = ["jupyter", "matplotlib", "openml", "pandas"]
+tests = ["flake8", "hypothesis", "jupyter-contrib-nbextensions", "pandas", "pytest", "pytest-azurepipelines", "pytest-benchmark", "pytest-cov"]
+
+[[package]]
+name = "giotto-tda"
+version = "0.6.0"
+description = "Toolbox for Machine Learning using Topological Data Analysis."
+optional = false
+python-versions = "*"
+files = [
+    {file = "giotto_tda-0.6.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:16dc8bc949d156cd6d60640ff790de03cb1dbaf7c11935beb9ba6aa86de5fad2"},
+    {file = "giotto_tda-0.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2c599e0ac9a67aee9a22745a80aaca74d0475de66bfff17675564851c242e45c"},
+    {file = "giotto_tda-0.6.0-cp310-cp310-win_amd64.whl", hash = "sha256:7c7fc4ce332a0c5130263187f3de50c82513b50a4978af59b722f1cfca496cfe"},
+    {file = "giotto_tda-0.6.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:bdfd5900857b01f9461995e7d751145714ba1d6b77872d78239dd4a5009dcd70"},
+    {file = "giotto_tda-0.6.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0aea92b84093b80d3db2f6c3a39a27effd435483ee226dd3bfe5d75efaaef0c5"},
+    {file = "giotto_tda-0.6.0-cp37-cp37m-win_amd64.whl", hash = "sha256:169a86b2cbdd4152ead31c76810f4b30fbf2c1d3f52542a0a19552e0f346bef9"},
+    {file = "giotto_tda-0.6.0-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:2329975e51bea754f9632b478cec96175354e7f2b8cf43c3368f2705d99a8ba3"},
+    {file = "giotto_tda-0.6.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e0deb69b83f7ee3e4e8f6bf49e1c55c0562246c31b92dc4095b6f83c0c681022"},
+    {file = "giotto_tda-0.6.0-cp38-cp38-win_amd64.whl", hash = "sha256:03003b6890110cee899a05dc00ec613b4fa175099aabe4adbe2e43f674bd1655"},
+    {file = "giotto_tda-0.6.0-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:7ee154819b73deadc80d25534a4ea8b7b184ae96a0ae0c4b624336e04457b534"},
+    {file = "giotto_tda-0.6.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:54e68c0e7bd4a73406f3b9a008bde8680b57bd0884fe65e39268677978dde56f"},
+    {file = "giotto_tda-0.6.0-cp39-cp39-win_amd64.whl", hash = "sha256:a70b1a124f29b57bd315785555571a2f0f564a8c6abc8cae59ef26a62753af7e"},
+]
+
+[package.dependencies]
+giotto-ph = ">=0.2.1"
+igraph = ">=0.9.8"
+ipywidgets = ">=7.5.1"
+joblib = ">=0.16.0"
+numpy = ">=1.19.1"
+plotly = ">=4.8.2"
+pyflagser = ">=0.4.3"
+scikit-learn = ">=0.23.1"
+scipy = ">=1.5.0"
+
+[package.extras]
+dev = ["flake8", "hypothesis", "jupyter-contrib-nbextensions", "nbconvert", "numpydoc", "openml", "pandas", "pytest", "pytest-azurepipelines", "pytest-benchmark", "pytest-cov", "sphinx", "sphinx-issues", "sphinx-rtd-theme"]
+doc = ["nbconvert", "numpydoc", "openml", "sphinx", "sphinx-issues", "sphinx-rtd-theme"]
+examples = ["gensim", "jupyter", "matplotlib", "openml", "pandas", "umap-learn"]
+tests = ["flake8", "hypothesis", "jupyter-contrib-nbextensions", "pandas", "pytest", "pytest-azurepipelines", "pytest-benchmark", "pytest-cov"]
+
+[[package]]
 name = "graphviz"
 version = "0.20.1"
 description = "Simple Python interface for Graphviz"
@@ -918,6 +988,77 @@ files = [
     {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
     {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
 ]
+
+[[package]]
+name = "igraph"
+version = "0.10.6"
+description = "High performance graph data structures and algorithms"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "igraph-0.10.6-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:eca5d01773a8b48bb585fb972c8afcf0cbfb791627a6706ccf56c0685b8ccca7"},
+    {file = "igraph-0.10.6-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ca05a065108d126771d4867c1e6867fdc340f86f9634978de1326aa2de782138"},
+    {file = "igraph-0.10.6-cp37-cp37m-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:81c4809ae45406cb81f985b643d8c9516c0394fa5f0aabe9a617f6506501c97e"},
+    {file = "igraph-0.10.6-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7edef14bed493d104213e95a21252f6ac9374fb1383966244c9fb3c615927317"},
+    {file = "igraph-0.10.6-cp37-cp37m-musllinux_1_1_aarch64.whl", hash = "sha256:96cdb8fdd9be3e4bd741b71436286f011f39bf7477cf7406d0d5ad9afa55f812"},
+    {file = "igraph-0.10.6-cp37-cp37m-musllinux_1_1_i686.whl", hash = "sha256:62a39bcebfe863c607642e110c4846de9631caa4ce1c6e2e11fae9b1d66904dd"},
+    {file = "igraph-0.10.6-cp37-cp37m-musllinux_1_1_x86_64.whl", hash = "sha256:c21f39fd40f7a0534442cb52e7dc07ee59aad4e52238a3b1c5fcb76f880d9648"},
+    {file = "igraph-0.10.6-cp37-cp37m-win32.whl", hash = "sha256:1deb496ccf6a71d07f4952e05b6aea3dd10e18abae9aadcbfd88f640cc804fa1"},
+    {file = "igraph-0.10.6-cp37-cp37m-win_amd64.whl", hash = "sha256:527319db746f22adefba3ccbe1e7fba485edd14339af7c953e34e329f04d423f"},
+    {file = "igraph-0.10.6-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:0a753a48f96c48d01944221f189b989a03151f6e0e37862675248612e45ddd18"},
+    {file = "igraph-0.10.6-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:c08023eb9a3df384e5d8285ec8a60d0e5c1738c6d139a0b51ac5da024538d466"},
+    {file = "igraph-0.10.6-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7e737d4946e30bf561272a394d3c35181d453ab605a9650812200510b92b58b8"},
+    {file = "igraph-0.10.6-cp38-cp38-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:82bacc57b40e6f2f1e7550073a283af38ed1ca9654f68796376eea1413988768"},
+    {file = "igraph-0.10.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:53c0d0000f57c920549626b48e4b81685c268795df3657251763e50b83e8dac5"},
+    {file = "igraph-0.10.6-cp38-cp38-musllinux_1_1_aarch64.whl", hash = "sha256:1a3dcf7b23e05dc7b1cf258bd82a52ed9a71e36ccc091480475bfe210ab60a17"},
+    {file = "igraph-0.10.6-cp38-cp38-musllinux_1_1_i686.whl", hash = "sha256:da6009f347bdf14191bb65352a9eb5b1e2ba9014d928306b60b460dc549d21c8"},
+    {file = "igraph-0.10.6-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:d1a935f7cb7a7490eef225bb5072ba3208cddf4a26aab9395f21a5a6082ed48f"},
+    {file = "igraph-0.10.6-cp38-cp38-win32.whl", hash = "sha256:3e93a2d6ac310d8f6b258aa659f1e2c36ed6a5c2982f79425e33a0d370df95c6"},
+    {file = "igraph-0.10.6-cp38-cp38-win_amd64.whl", hash = "sha256:2913d91d9aeae107295fe238e1fe73d1150fca51b4e863c0442904dfb36f0d5a"},
+    {file = "igraph-0.10.6-cp39-abi3-macosx_10_9_x86_64.whl", hash = "sha256:eb97640e9e71913015e7073341a5f6b4017fe025222950873c507d4ee97670f9"},
+    {file = "igraph-0.10.6-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:409f377ea828d73bdf8da1e8372492db570efea765508eb091ec827492604ab7"},
+    {file = "igraph-0.10.6-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a4d88c6b392e70d1e8b9fb7747b545c9837b0232105ace379e63a6b08d987f23"},
+    {file = "igraph-0.10.6-cp39-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:053cdff880e46dca5a754777a5b2d68e904e82e831c6eb8ba7fdaed8d004a888"},
+    {file = "igraph-0.10.6-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:868b558ca3d3363e0864246c20a9e937f849125103bd5e1e45e5f233121c1632"},
+    {file = "igraph-0.10.6-cp39-abi3-musllinux_1_1_aarch64.whl", hash = "sha256:ad8a9245d1d27f50003c387105a52a9794b070fcc448f23fd58f7288126500ea"},
+    {file = "igraph-0.10.6-cp39-abi3-musllinux_1_1_i686.whl", hash = "sha256:6142060215c7bc5007f65ceffaa2ae1d84d0ef45bd9cbe8bc0670380200beb0f"},
+    {file = "igraph-0.10.6-cp39-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:434f71859d39bfe7285c1ff02486492cf0d9236e50d2b0efd3f3fb316f106ebe"},
+    {file = "igraph-0.10.6-cp39-abi3-win32.whl", hash = "sha256:f375b5e9faea3381c9bb878195cbfc83444a13fb357f8e6c5767d2d9e3745e26"},
+    {file = "igraph-0.10.6-cp39-abi3-win_amd64.whl", hash = "sha256:69d21b26599c86c6b937138280b13306f9b4e380498cc13896c603985c5ee80a"},
+    {file = "igraph-0.10.6-pp310-pypy310_pp73-macosx_10_9_x86_64.whl", hash = "sha256:06ca4879236cbb52dd33ddb8e5d562b387f91607fe2bc5f277054778560448c2"},
+    {file = "igraph-0.10.6-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:95b1b02a3d0c321339f2ed7283f37a22591c3b6a084393748369d5815aafe0a9"},
+    {file = "igraph-0.10.6-pp310-pypy310_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:a1cc73149e5ae448054c04050e5cfcdd9d886f72883ec9ca11185e16f62df2b1"},
+    {file = "igraph-0.10.6-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:521e9a1ab869d65cdc7713f2649794e8076c2d6b210dcad37ac6bcaffaf858de"},
+    {file = "igraph-0.10.6-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:547f5e815063e68acd1efedf31ccb3f204a7d6e80fdddd96cb18b11610744912"},
+    {file = "igraph-0.10.6-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:4f1a33d7bf8ebaaa0f6401db437e23c3fe90b13c042897fa6123e0cf63605149"},
+    {file = "igraph-0.10.6-pp37-pypy37_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e1d3a0882224dafadb259a0e660650779a7714f3d931a03127af43ef05a4d6e2"},
+    {file = "igraph-0.10.6-pp37-pypy37_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:169d7f1f8f1a39d1fa965dba0cab69b0d03de4b5e3272b196c60c3104a7e2735"},
+    {file = "igraph-0.10.6-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:71a03c57550066a5cbf6fc6621d470fbf4abcf33ecb975a21e13e09cf45b965b"},
+    {file = "igraph-0.10.6-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:b3e038f78324e138869358bf17f9e57bcd665f7ddf6ed4b5f83fcbfc782f5059"},
+    {file = "igraph-0.10.6-pp38-pypy38_pp73-macosx_10_9_x86_64.whl", hash = "sha256:936c681b3d6c507f3d1008c37d7ce6ef570d0ad932a94af1d512609da72a8ec1"},
+    {file = "igraph-0.10.6-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:47637170741eb48550a18dc1072d354476866a3d6bc30b260a23acc04d15168f"},
+    {file = "igraph-0.10.6-pp38-pypy38_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:3bb368af87b5ea1877baf0cc337e6d83bb688f1f81c9f75973da92c30a4106c3"},
+    {file = "igraph-0.10.6-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b40da28b2ed1b35d24794996ff38ed3292ddaeea8cbeb48da146df0bf32021ae"},
+    {file = "igraph-0.10.6-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:81fbd93bbe81127aa98247a777a4eb2902443079254696d5aaa0a146cff88663"},
+    {file = "igraph-0.10.6-pp39-pypy39_pp73-macosx_10_9_x86_64.whl", hash = "sha256:3296e013c695488c313daa218aa5861dcd3623f298935f2f6f48b2bf1e65e5d0"},
+    {file = "igraph-0.10.6-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4c743703ff6a9907deddf3f15ddb7a4e0d525a0055e5cf29ac2143b865fdf6c2"},
+    {file = "igraph-0.10.6-pp39-pypy39_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:ddbbdaab269700d35969feaab73b9cbf7c55daa7711aaa01e0f9c598c9b8fbe1"},
+    {file = "igraph-0.10.6-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:26ae1fe7e4e55a851cdffcd302d9ad530303e47676424ee422dbede7450f948f"},
+    {file = "igraph-0.10.6-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:1a21dae12de610474b5b64f92822f3da4af2cedd60413b56aa55cc165dc0c763"},
+    {file = "igraph-0.10.6.tar.gz", hash = "sha256:76f7aad294514412f835366a7d9a9c1e7a34c3e6ef0a6c3a1a835234323228e8"},
+]
+
+[package.dependencies]
+texttable = ">=1.6.2"
+
+[package.extras]
+cairo = ["cairocffi (>=1.2.0)"]
+doc = ["Sphinx (>=4.2.0)", "sphinxbootstrap4theme (>=0.6.0)"]
+matplotlib = ["matplotlib (>=3.5.0,<3.6.0)"]
+plotly = ["plotly (>=5.3.0)"]
+plotting = ["cairocffi (>=1.2.0)"]
+test = ["Pillow (>=9)", "cairocffi (>=1.2.0)", "matplotlib (>=3.6.0)", "networkx (>=2.5)", "numpy (>=1.19.0)", "pandas (>=1.1.0)", "plotly (>=5.3.0)", "pytest (>=7.0.1)", "pytest-timeout (>=2.1.0)", "scipy (>=1.5.0)"]
+test-musl = ["cairocffi (>=1.2.0)", "networkx (>=2.5)", "pytest (>=7.0.1)", "pytest-timeout (>=2.1.0)"]
 
 [[package]]
 name = "imagesize"
@@ -2305,6 +2446,21 @@ docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.1)", "sphinx-
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-cov (>=4.1)", "pytest-mock (>=3.11.1)"]
 
 [[package]]
+name = "plotly"
+version = "5.15.0"
+description = "An open-source, interactive data visualization library for Python"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "plotly-5.15.0-py2.py3-none-any.whl", hash = "sha256:3508876bbd6aefb8a692c21a7128ca87ce42498dd041efa5c933ee44b55aab24"},
+    {file = "plotly-5.15.0.tar.gz", hash = "sha256:822eabe53997d5ebf23c77e1d1fcbf3bb6aa745eb05d532afd4b6f9a2e2ab02f"},
+]
+
+[package.dependencies]
+packaging = "*"
+tenacity = ">=6.2.0"
+
+[[package]]
 name = "pluggy"
 version = "1.2.0"
 description = "plugin and hook calling mechanisms for python"
@@ -2408,6 +2564,35 @@ files = [
     {file = "pycparser-2.21-py2.py3-none-any.whl", hash = "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"},
     {file = "pycparser-2.21.tar.gz", hash = "sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"},
 ]
+
+[[package]]
+name = "pyflagser"
+version = "0.4.5"
+description = "Python bindings for the flagser C++ library."
+optional = false
+python-versions = "*"
+files = [
+    {file = "pyflagser-0.4.5-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7023c49a63943166178aaac0ac209be6ae6ab2572139f7767f760653a175eb6e"},
+    {file = "pyflagser-0.4.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:191d04b111230e6898ba67e60582546cd36ac97267504bbe8bd80fd9047c071d"},
+    {file = "pyflagser-0.4.5-cp310-cp310-win_amd64.whl", hash = "sha256:7ae6b99b27b0b3cf8912378646585fcbb0abd6628d38f0062d163a600d2771d9"},
+    {file = "pyflagser-0.4.5-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:347e905cca740538ebd2a4c6c94d15a95d05cdf41b0ceaa5207b30b6d7c2e187"},
+    {file = "pyflagser-0.4.5-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f421740ec3e612a6fb6f1b6d0bfe49744676028dc003854c1f58376befe19b5b"},
+    {file = "pyflagser-0.4.5-cp37-cp37m-win_amd64.whl", hash = "sha256:5bffbff6de02e034189919f45d53d262d329191aba4ae9fbf0d67b716a177379"},
+    {file = "pyflagser-0.4.5-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:05c199ad2b8e409c9cdb46e801809555cdb5d496b654f65cacbe59ac70754821"},
+    {file = "pyflagser-0.4.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:51db015b069b457d52811a09514930b11758e5a6be2926595e321391eee4fb23"},
+    {file = "pyflagser-0.4.5-cp38-cp38-win_amd64.whl", hash = "sha256:1655b84cfff9cd5d379d6dd076273f7c7554114aff05a46074668711ffdb446d"},
+    {file = "pyflagser-0.4.5-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:8a3100a1c71d821ef9e7fa5cfaaf517cc35c261f53be31a15b539beaa23f8e54"},
+    {file = "pyflagser-0.4.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3eb2aba5d47e5e56324b12651d9dccd00901bee80f3138ede17f8d5ae515e57e"},
+    {file = "pyflagser-0.4.5-cp39-cp39-win_amd64.whl", hash = "sha256:62a7080ce7291215682a1e619f53f3a33d5b9a3ad5fc093b7d11ca024215388a"},
+]
+
+[package.dependencies]
+numpy = ">=1.17.0"
+scipy = ">=0.17.0"
+
+[package.extras]
+doc = ["numpydoc", "sphinx", "sphinx-gallery", "sphinx-issues", "sphinx-rtd-theme"]
+tests = ["flake8", "pytest", "pytest-azurepipelines", "pytest-benchmark", "pytest-cov", "pytest-timeout"]
 
 [[package]]
 name = "pygments"
@@ -3548,6 +3733,20 @@ files = [
 mpmath = ">=0.19"
 
 [[package]]
+name = "tenacity"
+version = "8.2.2"
+description = "Retry code until it succeeds"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "tenacity-8.2.2-py3-none-any.whl", hash = "sha256:2f277afb21b851637e8f52e6a613ff08734c347dc19ade928e519d7d2d8569b0"},
+    {file = "tenacity-8.2.2.tar.gz", hash = "sha256:43af037822bd0029025877f3b2d97cc4d7bb0c2991000a3d59d71517c5c969e0"},
+]
+
+[package.extras]
+doc = ["reno", "sphinx", "tornado (>=4.5)"]
+
+[[package]]
 name = "terminado"
 version = "0.17.1"
 description = "Tornado websocket backend for the Xterm.js Javascript terminal emulator library."
@@ -3566,6 +3765,17 @@ tornado = ">=6.1.0"
 [package.extras]
 docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["pre-commit", "pytest (>=7.0)", "pytest-timeout"]
+
+[[package]]
+name = "texttable"
+version = "1.6.7"
+description = "module to create simple ASCII tables"
+optional = false
+python-versions = "*"
+files = [
+    {file = "texttable-1.6.7-py2.py3-none-any.whl", hash = "sha256:b7b68139aa8a6339d2c320ca8b1dc42d13a7831a346b446cb9eb385f0c76310c"},
+    {file = "texttable-1.6.7.tar.gz", hash = "sha256:290348fb67f7746931bcdfd55ac7584ecd4e5b0846ab164333f0794b121760f2"},
+]
 
 [[package]]
 name = "threadpoolctl"
@@ -4018,4 +4228,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "1048102120a2a8f5f608bb12c90c3b971eafac0ae6f98eb064e990eb8cd109b1"
+content-hash = "53b2f3cecef3b79f565b565125a041f31114918565eb7f315ac418a5860635a6"

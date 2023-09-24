@@ -41,7 +41,7 @@ def ipynb_to_html(ipynb_list):
     logging.info('---ipynb_to_html---')
     os.chdir(main_path)
     html_list = []
-    dir_list = ['causalanalysis','cv','graph','multimodal','nlp','recommendation','rl','tabledata','timeseriesanalysis']
+    dir_list = ['causalanalysis','cv','graph','multimodal','nlp','optimization','recommendation','rl','tabledata','timeseriesanalysis']
     # jupyterコマンドのパス
     jupyter = f'{home_path}/.cache/pypoetry/virtualenvs/data-science-wiki-274Wd7YI-py3.9/bin/jupyter'
     for ipynb_path in ipynb_list:

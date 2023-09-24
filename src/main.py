@@ -23,6 +23,7 @@ def update_check():
     """
     check github update
     """
+    logging.info('---update_check---')
     os.chdir(main_path)
     result = subprocess.run(['git', 'pull', 'origin', 'main'], capture_output=True, text=True)
     logging.info(f'git pull:{result}')
@@ -35,7 +36,9 @@ def update_check():
     return changelog_list
 
 
+
 def ipynb_to_html(ipynb_list):
+    logging.info('---ipynb_to_html---')
     os.chdir(main_path)
     html_list = []
     dir_list = ['causalanalysis','cv','graph','multimodal','nlp','recommendation','rl','tabledata','timeseriesanalysis']
@@ -57,55 +60,59 @@ def ipynb_to_html(ipynb_list):
 
 
 
-def ipynb_to_text(html_list):
-    for html_path in html_list:
+def ipynb_to_json(html_list_):
+    logging.info('---ipynb_to_json---')
 
+    for html_path in html_list_:
         file_path = main_path + html_path.replace(".html", ".ipynb")
-        text = jupytext.read(file_path)
+        try:
+            text = jupytext.read(file_path)
+            title = text['cells'][0]['source'].replace('# ', '')
+            description = text['cells'][1]['source']
 
-        title = text['cells'][0]['source'].replace(' ', '').replace('#', '')
-        description = text['cells'][1]['source']
+            utc_now = datetime.now(timezone.utc)
+            iso_format = utc_now.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
 
-        #html_full_path =  "/home/ec2-user/efs/article/" + html_path
+            new_data = {
+                "title": title,
+                "overview": description,
+                "path": '/' + html_path,
+                "created_at": iso_format
+            }
 
-        utc_now = datetime.now(timezone.utc)
-        iso_format = utc_now.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+            with open('/home/ec2-user/efs/article_info.json', 'r', encoding='utf-8') as f:
+                data = json.load(f)
 
-        new_data = {
-            "title": f"{title}",
-            "overview": f"{description}",
-            "path": "/home/ec2-user/efs/article/" + html_path,
-            "created_at": f"{iso_format}"
-        }
+            if not any(item["title"] == title for item in data):
+                data.append(new_data)
+                with open('/home/ec2-user/efs/article_info.json', 'w', encoding='utf-8') as f:
+                    json.dump(data, f, ensure_ascii=False, indent=4)
 
-
-        with open('/home/ec2-user/efs/article_info.json', 'r', encoding='utf-8') as f:
-            data = json.load(f)
-    
-        # 新しいデータを追加
-        data.append(new_data)
-
-        # ファイルに書き出し
-        with open('/home/ec2-user/efs/article_info.json', 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
-
-        logging.info(title)
-        logging.info(description)
+        except FileNotFoundError:
+            logging.info(f'skip file:{file_path}')
+            continue
     return 
 
 
 
 def efs_uploader(html_list):
+    logging.info('---efs_uploader---')
+
     for html_path in html_list:
-        source_path = "/home/ec2-user/data-science-wiki/" + html_path
-        # ファイルを移動したい先のパス
-        destination_path = "/home/ec2-user/efs/article/" + html_path
-        os.makedirs(os.path.dirname(destination_path), exist_ok=True)
-        shutil.move(source_path, destination_path)
+        try:
+            source_path = "/home/ec2-user/data-science-wiki/" + html_path
+            destination_path = "/home/ec2-user/efs/article/" + html_path
+            logging.info(f'destination path:{destination_path}')
+            os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+            shutil.move(source_path, destination_path)
+        except FileNotFoundError:
+            logging.info(f'skip file:{html_path}')
+            continue
         #os.rename(source_path, destination_path)
         #if os.path.isfile(local_path):
         #    os.remove(local_path)
     return
+
 
 
 if __name__ == "__main__":
@@ -113,6 +120,5 @@ if __name__ == "__main__":
     os.chdir(main_path)
     ipynb_list = update_check()
     html_list = ipynb_to_html(ipynb_list)
-    ipynb_to_text(html_list)
-    #html_list = ['nlp/llm_framework/tree_of_thought.html']
+    ipynb_to_json(html_list)
     efs_uploader(html_list)

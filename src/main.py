@@ -66,6 +66,7 @@ def ipynb_to_json(html_list_):
     for html_path in html_list_:
         file_path = main_path + html_path.replace(".html", ".ipynb")
         try:
+            logging.info(f'html file:{html_path}')
             text = jupytext.read(file_path)
             title = text['cells'][0]['source'].replace('# ', '')
             description = text['cells'][1]['source']
@@ -108,9 +109,7 @@ def efs_uploader(html_list):
         except FileNotFoundError:
             logging.info(f'skip file:{html_path}')
             continue
-        #os.rename(source_path, destination_path)
-        #if os.path.isfile(local_path):
-        #    os.remove(local_path)
+
     return
 
 

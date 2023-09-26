@@ -84,10 +84,16 @@ def ipynb_to_json(html_list_):
             with open('/home/ec2-user/efs/article_info.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
 
-            if not any(item["title"] == title for item in data):
+            existing_entry = next((item for item in data if item["title"] == title), None)
+
+            if existing_entry:
+                # 既存のエントリを新しいデータで更新
+                existing_entry.update(new_data)
+            else:
                 data.append(new_data)
-                with open('/home/ec2-user/efs/article_info.json', 'w', encoding='utf-8') as f:
-                    json.dump(data, f, ensure_ascii=False, indent=4)
+
+            with open('/home/ec2-user/efs/article_info.json', 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
 
         except FileNotFoundError:
             logging.info(f'skip file:{file_path}')

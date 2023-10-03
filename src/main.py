@@ -36,7 +36,7 @@ def update_check():
     return changelog_list
 
 
-
+"""
 def ipynb_to_html(ipynb_list):
     logging.info('---ipynb_to_html---')
     os.chdir(main_path)
@@ -53,6 +53,38 @@ def ipynb_to_html(ipynb_list):
                 logging.info(f'変換結果:{html_result}')
                 html_path = ipynb_path.replace('ipynb', 'html')
                 logging.info(f'作成ファイル:{html_path}')
+                html_list.append(html_path)
+
+    logging.info(f'htmlリスト:{html_list}')
+    return html_list
+"""
+
+
+def ipynb_to_html(ipynb_list):
+    logging.info('---ipynb_to_html---')
+    os.chdir(main_path)
+    html_list = []
+    dir_list = ['causalanalysis','cv','graph','multimodal','nlp','optimization','recommendation','rl','tabledata','timeseriesanalysis']
+    # jupyterコマンドのパス
+    jupyter = f'{home_path}/.cache/pypoetry/virtualenvs/data-science-wiki-274Wd7YI-py3.9/bin/jupyter'
+    for ipynb_path in ipynb_list:
+        for dir_name in dir_list:
+            if ('ipynb' in ipynb_path) and (dir_name in ipynb_path):
+                file_path = main_path + ipynb_path
+                logging.info(f'file path:{file_path}')
+                html_result = subprocess.run([jupyter, 'nbconvert', '--to', 'html', file_path], capture_output=True, text=True)
+
+                if html_result.returncode == 0:
+                    logging.info(f'Successfully converted: {file_path} to HTML')
+                    logging.info(f'Conversion stdout: {html_result.stdout}')
+                else:
+                    logging.error(f'Conversion failed: {file_path} to HTML')
+                    logging.error(f'Conversion stdout: {html_result.stdout}')
+                    logging.error(f'Conversion stderr: {html_result.stderr}')
+                    continue  # optionally skip this iteration if the conversion failed
+
+                html_path = ipynb_path.replace('ipynb', 'html')
+                logging.info(f'Created file: {html_path}')
                 html_list.append(html_path)
 
     logging.info(f'htmlリスト:{html_list}')
@@ -84,19 +116,24 @@ def ipynb_to_json(html_list_):
             with open('/home/ec2-user/efs/article_info.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
 
-            existing_entry = next((item for item in data if item["title"] == title), None)
+            existing_entry = next((item for item in data if item["path"] == new_data["path"]), None)
 
             if existing_entry:
                 # 既存のエントリを新しいデータで更新
+                logging.info(f'update file:{html_path}')
                 existing_entry.update(new_data)
             else:
+                logging.info(f'append file:{html_path}')
                 data.append(new_data)
 
             with open('/home/ec2-user/efs/article_info.json', 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)
 
         except FileNotFoundError:
-            logging.info(f'skip file:{file_path}')
+            logging.exception(f'File not found, skip file:{file_path}')
+            continue
+        except Exception as e:
+            logging.exception(f'An unexpected error occurred while processing file: {file_path}. Error: {str(e)}')
             continue
     return 
 
@@ -109,11 +146,15 @@ def efs_uploader(html_list):
         try:
             source_path = "/home/ec2-user/data-science-wiki/" + html_path
             destination_path = "/home/ec2-user/efs/article/" + html_path
-            logging.info(f'destination path:{destination_path}')
             os.makedirs(os.path.dirname(destination_path), exist_ok=True)
             shutil.move(source_path, destination_path)
+            logging.info(f'destination path:{destination_path}')
+
         except FileNotFoundError:
-            logging.info(f'skip file:{html_path}')
+            logging.exception(f'File not found, skip file:{html_path}')
+            continue
+        except Exception as e:
+            logging.exception(f'An unexpected error occurred while processing file: {html_path}. Error: {str(e)}')
             continue
 
     return

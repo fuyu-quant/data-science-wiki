@@ -1,6 +1,6 @@
 # Data Science Wiki
 
-![ロゴ1](images/%E3%83%AD%E3%82%B41.png)
+![ロゴ1](images/logo1.png)
 
 [Data Science Wiki](https://www.data-science-wiki.net/)で公開されているコードが保存されているリポジトリです．
 

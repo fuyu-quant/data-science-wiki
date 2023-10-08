@@ -26,6 +26,7 @@ sentencepiece = "^0.1.99"
 giotto-tda = "^0.6.0"
 nbconvert = "^7.8.0"
 ipywidgets = "^8.1.1"
+xgboost = "^2.0.0"
 
 
 [build-system]

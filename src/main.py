@@ -36,28 +36,6 @@ def update_check():
     return changelog_list
 
 
-"""
-def ipynb_to_html(ipynb_list):
-    logging.info('---ipynb_to_html---')
-    os.chdir(main_path)
-    html_list = []
-    dir_list = ['causalanalysis','cv','graph','multimodal','nlp','optimization','recommendation','rl','tabledata','timeseriesanalysis']
-    # jupyterコマンドのパス
-    jupyter = f'{home_path}/.cache/pypoetry/virtualenvs/data-science-wiki-274Wd7YI-py3.9/bin/jupyter'
-    for ipynb_path in ipynb_list:
-        for dir_name in dir_list:
-            if ('ipynb' in ipynb_path) and (dir_name in ipynb_path):
-                file_path = main_path + ipynb_path
-                logging.info(f'file path:{file_path}')
-                html_result = subprocess.run([jupyter,'nbconvert','--to','html', file_path], capture_output=True, text=True)
-                logging.info(f'変換結果:{html_result}')
-                html_path = ipynb_path.replace('ipynb', 'html')
-                logging.info(f'作成ファイル:{html_path}')
-                html_list.append(html_path)
-
-    logging.info(f'htmlリスト:{html_list}')
-    return html_list
-"""
 
 
 def ipynb_to_html(ipynb_list):

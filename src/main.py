@@ -10,7 +10,6 @@ from datetime import datetime, timezone
 home_path = os.environ['HOME']
 main_path = f'{home_path}/data-science-wiki/'
 
-
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -63,10 +62,30 @@ def ipynb_to_html(ipynb_list):
 
                 html_path = ipynb_path.replace('ipynb', 'html')
                 logging.info(f'Created file: {html_path}')
+
+                # スタイルの追加
+                with open(html_path, 'r', encoding='utf-8') as file:
+                    html_content = file.read()
+                head_end_index = html_content.find('</head>')
+                style_to_add = """
+                <style>
+                .cm-editor.cm-s-jupyter .highlight pre {
+                    overflow-x: auto;
+                }
+                </style>
+                """
+                updated_html_content = html_content[:head_end_index] + style_to_add + html_content[head_end_index:]
+                with open(html_path, 'w', encoding='utf-8') as file:
+                    file.write(updated_html_content)
+
+                logging.info('スタイルの追加')
                 html_list.append(html_path)
 
     logging.info(f'htmlリスト:{html_list}')
     return html_list
+
+
+
 
 
 
@@ -113,7 +132,7 @@ def ipynb_to_json(html_list_):
         except Exception as e:
             logging.exception(f'An unexpected error occurred while processing file: {file_path}. Error: {str(e)}')
             continue
-    return 
+    return
 
 
 

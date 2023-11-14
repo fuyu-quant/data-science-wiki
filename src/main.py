@@ -5,6 +5,7 @@ import jupytext
 import shutil
 import json
 from datetime import datetime, timezone
+from bs4 import BeautifulSoup
 
 
 home_path = os.environ['HOME']
@@ -35,9 +36,61 @@ def update_check():
     return changelog_list
 
 
+def remove_metadata(file_path_):
+    with open(file_path_, 'r') as file:
+        data = json.load(file)
+
+    # metadata.widgets を削除する
+    if 'metadata' in data and 'widgets' in data['metadata']:
+        del data['metadata']['widgets']
+
+    # 同じファイルに上書き保存する
+        with open(file_path_, 'w') as file:
+            json.dump(data, file, indent=2)
+    logging.info('remove metadata')
+    return
 
 
-def ipynb_to_html(ipynb_list):
+def edit_html(main_path_, html_path_):
+    with open(html_path_, 'r', encoding='utf-8') as file:
+        html_content = file.read()
+
+    # コードブロックをスクロールするためのタグを埋め込む
+    head_end_index = html_content.find('</head>')
+    style_to_add = """
+    <style>
+    .cm-editor.cm-s-jupyter .highlight pre {
+        overflow-x: auto;
+    }
+    </style>
+    """
+    updated_html_content = html_content[:head_end_index] + style_to_add + html_content[head_end_index:]
+
+    # SEO対策のためのタグを追加
+
+    file_path = main_path_ + html_path_.replace(".html", ".ipynb")
+    text = jupytext.read(file_path)
+    title = text['cells'][0]['source'].replace('# ', '')
+    description = text['cells'][1]['source']
+
+    # タイトルタグ
+    soup = BeautifulSoup(updated_html_content, 'html.parser')
+    title_tag = soup.find('title')
+    title_tag.string = f"{title} | データサイエンスのまとめサイト,200件以上の手法を紹介"
+
+    # Descriptionタグ
+    new_meta_tag = soup.new_tag('meta', attrs={"name": "description", "content": f"{description}"})
+    soup.head.append(new_meta_tag)
+    modified_html_content = str(soup)
+
+    with open(html_path_, 'w', encoding='utf-8') as file:
+        file.write(modified_html_content)
+
+    logging.info('htmlファイルの編集')
+    return
+
+
+def ipynb_to_html(main_path_, ipynb_list):
     logging.info('---ipynb_to_html---')
     os.chdir(main_path)
     html_list = []
@@ -48,6 +101,7 @@ def ipynb_to_html(ipynb_list):
         for dir_name in dir_list:
             if ('ipynb' in ipynb_path) and (dir_name in ipynb_path):
                 file_path = main_path + ipynb_path
+                remove_metadata(file_path)
                 logging.info(f'file path:{file_path}')
                 html_result = subprocess.run([jupyter, 'nbconvert', '--to', 'html', file_path], capture_output=True, text=True)
 
@@ -63,22 +117,8 @@ def ipynb_to_html(ipynb_list):
                 html_path = ipynb_path.replace('ipynb', 'html')
                 logging.info(f'Created file: {html_path}')
 
-                # スタイルの追加
-                with open(html_path, 'r', encoding='utf-8') as file:
-                    html_content = file.read()
-                head_end_index = html_content.find('</head>')
-                style_to_add = """
-                <style>
-                .cm-editor.cm-s-jupyter .highlight pre {
-                    overflow-x: auto;
-                }
-                </style>
-                """
-                updated_html_content = html_content[:head_end_index] + style_to_add + html_content[head_end_index:]
-                with open(html_path, 'w', encoding='utf-8') as file:
-                    file.write(updated_html_content)
+                edit_html(main_path_, html_path)
 
-                logging.info('スタイルの追加')
                 html_list.append(html_path)
 
     logging.info(f'htmlリスト:{html_list}')
@@ -89,11 +129,11 @@ def ipynb_to_html(ipynb_list):
 
 
 
-def ipynb_to_json(html_list_):
+def ipynb_to_json(main_path_, html_list_):
     logging.info('---ipynb_to_json---')
 
     for html_path in html_list_:
-        file_path = main_path + html_path.replace(".html", ".ipynb")
+        file_path = main_path_ + html_path.replace(".html", ".ipynb")
         try:
             logging.info(f'html file:{html_path}')
             text = jupytext.read(file_path)
@@ -159,9 +199,11 @@ def efs_uploader(html_list):
 
 
 if __name__ == "__main__":
+    home_path = os.environ['HOME']
+    main_path = f'{home_path}/data-science-wiki/'
     # gitのコマンドを実行する上で必要
     os.chdir(main_path)
     ipynb_list = update_check()
-    html_list = ipynb_to_html(ipynb_list)
-    ipynb_to_json(html_list)
+    html_list = ipynb_to_html(main_path, ipynb_list)
+    ipynb_to_json(main_path, html_list)
     efs_uploader(html_list)

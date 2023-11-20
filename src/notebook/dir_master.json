@@ -1,0 +1,473 @@
+[
+    {
+        "name": "causalanalysis",
+        "display_name": "因果分析",
+        "children": [
+            {
+                "name": "causal_Inference",
+                "display_name": "因果推論",
+                "children": null
+            },
+            {
+                "name": "causal_search",
+                "display_name": "因果探索",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "cv",
+        "display_name": "画像分析",
+        "children": [
+            {
+                "name": "anomaly_detection",
+                "display_name": "異常検知",
+                "children": null
+            },
+            {
+                "name": "image_classification",
+                "display_name": "画像分類",
+                "children": null
+            },
+            {
+                "name": "image_embedding",
+                "display_name": "埋め込み表現",
+                "children": null
+            },
+            {
+                "name": "instance_segmentation",
+                "display_name": "インスタンスセグメンテーション",
+                "children": null
+            },
+            {
+                "name": "object_detection",
+                "display_name": "物体認識",
+                "children": null
+            },
+            {
+                "name": "pose_estimation",
+                "display_name": "姿勢推定",
+                "children": null
+            },
+            {
+                "name": "image_regression",
+                "display_name": "画像回帰",
+                "children": null
+            },
+            {
+                "name": "semantic_segmentation",
+                "display_name": "セマンティックセグメンテーション",
+                "children": null
+            },
+            {
+                "name": "image_model_xai",
+                "display_name": "画像モデルの解釈",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "graph",
+        "display_name": "グラフ分析",
+        "children": [
+            {
+                "name": "link_prediction",
+                "display_name": "リンク予測",
+                "children": null
+            },
+            {
+                "name": "node_classification",
+                "display_name": "ノード分類",
+                "children": null
+            },
+            {
+                "name": "node_embedding",
+                "display_name": "ノード埋め込み",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "multimodal",
+        "display_name": "マルチモーダル",
+        "children": [
+            {
+                "name": "image_to_text",
+                "display_name": "画像からテキスト生成",
+                "children": null
+            },
+            {
+                "name": "image_variation",
+                "display_name": "画像から類似画像の生成",
+                "children": null
+            },
+            {
+                "name": "ocr",
+                "display_name": "光学文字認識(OCR)",
+                "children": null
+            },
+            {
+                "name": "speech_to_text",
+                "display_name": "音声からテキスト(文字起こし)",
+                "children": null
+            },
+            {
+                "name": "text_guided_image_to_image",
+                "display_name": "テキストによる画像編集",
+                "children": null
+            },
+            {
+                "name": "text_image_model",
+                "display_name": "テキスト,画像モデル",
+                "children": null
+            },
+            {
+                "name": "text_to_image",
+                "display_name": "テキストから画像生成",
+                "children": null
+            },
+            {
+                "name": "text_to_speech",
+                "display_name": "テキストから音声合成",
+                "children": null
+            },
+            {
+                "name": "text_to_video",
+                "display_name": "テキストから動画生成",
+                "children": null
+            },
+            {
+                "name": "text_to_music",
+                "display_name": "テキストから音楽生成",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "nlp",
+        "display_name": "自然言語処理",
+        "children": [
+            {
+                "name": "text_classification(english)",
+                "display_name": "文章分類(英語)",
+                "children": null
+            },
+            {
+                "name": "text_classification(japanese)",
+                "display_name": "文章分類(日本語)",
+                "children": null
+            },
+            {
+                "name": "fine_tuning",
+                "display_name": "ファインチューニング",
+                "children": null
+            },
+            {
+                "name": "llm_framework",
+                "display_name": "LLMフレームワーク",
+                "children": null
+            },
+            {
+                "name": "llm_prompt_engineering",
+                "display_name": "LLMプロンプトエンジニアリング",
+                "children": null
+            },
+            {
+                "name": "morphological_analysis(english)",
+                "display_name": "形態素解析(英語)",
+                "children": null
+            },
+            {
+                "name": "morphological_analysis(japanese)",
+                "display_name": "形態素解析(日本語)",
+                "children": null
+            },
+            {
+                "name": "named_entity_extraction(english)",
+                "display_name": "固有表現抽出(英語)",
+                "children": null
+            },
+            {
+                "name": "named_entity_extraction(japanese)",
+                "display_name": "固有表現抽出(日本語)",
+                "children": null
+            },
+            {
+                "name": "q&a(english)",
+                "display_name": "質問応答(英語)",
+                "children": null
+            },
+            {
+                "name": "q&a(japanese)",
+                "display_name": "質問応答(日本語)",
+                "children": null
+            },
+            {
+                "name": "text_regression(english)",
+                "display_name": "テキスト回帰(英語)",
+                "children": null
+            },
+            {
+                "name": "text_regression(japanese)",
+                "display_name": "テキスト回帰(日本語)",
+                "children": null
+            },
+            {
+                "name": "summary(english)",
+                "display_name": "文章要約(英語)",
+                "children": null
+            },
+            {
+                "name": "summary(japanese)",
+                "display_name": "文章要約(日本語)",
+                "children": null
+            },
+            {
+                "name": "text_embedding(english)",
+                "display_name": "埋め込み表現(英語)",
+                "children": null
+            },
+            {
+                "name": "text_embedding(japanese)",
+                "display_name": "埋め込み表現(日本語)",
+                "children": null
+            },
+            {
+                "name": "text_generation(english)",
+                "display_name": "文章生成(英語)",
+                "children": null
+            },
+            {
+                "name": "text_generation(japanese)",
+                "display_name": "文章生成(日本語)",
+                "children": null
+            },
+            {
+                "name": "topic_model(english)",
+                "display_name": "トピックモデル(英語)",
+                "children": null
+            },
+            {
+                "name": "topic_model(japanese)",
+                "display_name": "トピックモデル(日本語)",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "mathematical_optimization",
+        "display_name": "数理最適化",
+        "children": [
+            {
+                "name": "linear_programming",
+                "display_name": "線形計画問題",
+                "children": null
+            },
+            {
+                "name": "integer_linear_programming",
+                "display_name": "整数線形計画問題",
+                "children": null
+            },
+            {
+                "name": "mixed_integer_linear_programming",
+                "display_name": "混合整数線形計画問題",
+                "children": null
+            },
+            {
+                "name": "quadratic_programming",
+                "display_name": "二次計画問題",
+                "children": null
+            },
+            {
+                "name": "nonlinear_programming",
+                "display_name": "非線形計画問題",
+                "children": null
+            },
+            {
+                "name": "multi_objective_optimization",
+                "display_name": "多目的最適化",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "recommendation",
+        "display_name": "レコメンデーション",
+        "children": [
+            {
+                "name": "linear",
+                "display_name": "線形モデル",
+                "children": null
+            },
+            {
+                "name": "recommendation_nn_model",
+                "display_name": "NNモデル",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "rl",
+        "display_name": "強化学習",
+        "children": [
+            {
+                "name": "value_based",
+                "display_name": "価値ベース",
+                "children": null
+            },
+            {
+                "name": "policy_based",
+                "display_name": "方策ベース",
+                "children": null
+            },
+            {
+                "name": "actor_critic",
+                "display_name": "アクタークリティック",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "tabledata",
+        "display_name": "テーブルデータ分析",
+        "children": [
+            {
+                "name": "anomaly_detection",
+                "display_name": "異常検知",
+                "children": null
+            },
+            {
+                "name": "automl",
+                "display_name": "AutoML",
+                "children": null
+            },
+            {
+                "name": "calibration",
+                "display_name": "キャリブレーション",
+                "children": null
+            },
+            {
+                "name": "binary_classification",
+                "display_name": "二値分類",
+                "children": null
+            },
+            {
+                "name": "multiclass_classification",
+                "display_name": "マルチクラス分類",
+                "children": null
+            },
+            {
+                "name": "multilabel_classification",
+                "display_name": "マルチラベル分類",
+                "children": null
+            },
+            {
+                "name": "clustering",
+                "display_name": "クラスタリング",
+                "children": null
+            },
+            {
+                "name": "data_analysis_tools",
+                "display_name": "データ分析ツール",
+                "children": null
+            },
+            {
+                "name": "dimensionality_reduction",
+                "display_name": "次元削減",
+                "children": null
+            },
+            {
+                "name": "marketing",
+                "display_name": "マーケティング",
+                "children": null
+            },
+            {
+                "name": "parameter_tuning",
+                "display_name": "パラメータチューニング",
+                "children": null
+            },
+            {
+                "name": "regression",
+                "display_name": "回帰",
+                "children": null
+            },
+            {
+                "name": "sparse_modeling",
+                "display_name": "スパースモデリング",
+                "children": null
+            },
+            {
+                "name": "robust_modeling",
+                "display_name": "ロバストモデリング",
+                "children": null
+            },
+            {
+                "name": "high_dimention_modeling",
+                "display_name": "高次元データのモデリング",
+                "children": null
+            },
+            {
+                "name": "xai",
+                "display_name": "機械学習モデルの解釈",
+                "children": null
+            },
+            {
+                "name": "ranking",
+                "display_name": "ランキング",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "timeseriesanalysis",
+        "display_name": "時系列分析",
+        "children": [
+            {
+                "name": "time_series_clustering",
+                "display_name": "時系列クラスタリング",
+                "children": null
+            },
+            {
+                "name": "machine_learning_model",
+                "display_name": "機械学習モデルの利用",
+                "children": null
+            },
+            {
+                "name": "time_series_nn_model",
+                "display_name": "NNモデル",
+                "children": null
+            },
+            {
+                "name": "reservoir_computing",
+                "display_name": "リザバーコンピューティング",
+                "children": null
+            },
+            {
+                "name": "state_space_model",
+                "display_name": "状態空間モデル",
+                "children": null
+            },
+            {
+                "name": "time_series_model",
+                "display_name": "時系列モデル",
+                "children": null
+            },
+            {
+                "name": "time_seriese_automl",
+                "display_name": "時系列データのAutoML",
+                "children": null
+            }
+        ]
+    },
+    {
+        "name": "audio_processing",
+        "display_name": "音声処理",
+        "children": [
+            {
+                "name": "sound_source_separation",
+                "display_name": "音源分離",
+                "children": null
+            }
+        ]
+    }
+]

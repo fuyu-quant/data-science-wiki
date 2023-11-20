@@ -37,17 +37,21 @@ def update_check():
 
 
 def remove_metadata(file_path_):
-    with open(file_path_, 'r') as file:
-        data = json.load(file)
+    # ファイルが存在する場合のみ実行
+    if os.path.exists(file_path_):
+        with open(file_path_, 'r') as file:
+            data = json.load(file)
 
-    # metadata.widgets を削除する
-    if 'metadata' in data and 'widgets' in data['metadata']:
-        del data['metadata']['widgets']
+        # metadata.widgets を削除する
+        if 'metadata' in data and 'widgets' in data['metadata']:
+            del data['metadata']['widgets']
 
-    # 同じファイルに上書き保存する
-        with open(file_path_, 'w') as file:
-            json.dump(data, file, indent=2)
-    logging.info('remove metadata')
+        # 同じファイルに上書き保存する
+            with open(file_path_, 'w') as file:
+                json.dump(data, file, indent=2)
+        logging.info('remove metadata')
+    else:
+        logging.warning(f'File not found: {file_path_}')
     return
 
 

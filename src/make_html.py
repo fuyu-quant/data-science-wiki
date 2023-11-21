@@ -8,10 +8,6 @@ from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 
 
-home_path = os.environ['HOME']
-main_path = f'{home_path}/data-science-wiki/'
-
-
 
 def remove_metadata(file_path_):
     # ファイルが存在する場合のみ実行
@@ -32,7 +28,8 @@ def remove_metadata(file_path_):
     return
 
 
-def edit_html(main_path_, html_path_):
+def edit_html(html_path_):
+    logging.info('edit_html')
     with open(html_path_, 'r', encoding='utf-8') as file:
         html_content = file.read()
 
@@ -48,11 +45,11 @@ def edit_html(main_path_, html_path_):
     updated_html_content = html_content[:head_end_index] + style_to_add + html_content[head_end_index:]
 
     # SEO対策のためのタグを追加
-
-    file_path = main_path_ + html_path_.replace(".html", ".ipynb")
+    file_path = html_path_.replace(".html", ".ipynb")
     text = jupytext.read(file_path)
     title = text['cells'][0]['source'].replace('# ', '')
     description = text['cells'][1]['source']
+
 
     # タイトルタグ
     soup = BeautifulSoup(updated_html_content, 'html.parser')
@@ -67,40 +64,42 @@ def edit_html(main_path_, html_path_):
     with open(html_path_, 'w', encoding='utf-8') as file:
         file.write(modified_html_content)
 
-    logging.info('htmlファイルの編集')
+    logging.info(f'htmlファイルの編集が完了:{html_path_}')
     return
 
 
-def ipynb_to_html(main_path_, ipynb_list):
-    logging.info('---ipynb_to_html---')
+def ipynb_to_html(ipynb_list):
+    logging.info('------ipynb_to_html------')
+    home_path = os.environ['HOME']
+    main_path = f'{home_path}/data-science-wiki/'
     os.chdir(main_path)
     html_list = []
-    dir_list = ['causalanalysis','cv','graph','multimodal','nlp','optimization','recommendation','rl','tabledata','timeseriesanalysis']
     # jupyterコマンドのパス
     jupyter = f'{home_path}/.cache/pypoetry/virtualenvs/data-science-wiki-274Wd7YI-py3.9/bin/jupyter'
     for ipynb_path in ipynb_list:
-        for dir_name in dir_list:
-            if ('ipynb' in ipynb_path) and (dir_name in ipynb_path):
-                file_path = main_path + ipynb_path
-                remove_metadata(file_path)
-                logging.info(f'file path:{file_path}')
-                html_result = subprocess.run([jupyter, 'nbconvert', '--to', 'html', file_path], capture_output=True, text=True)
+        logging.info(f'------ファイルの処理を開始------:{ipynb_path}')
+        remove_metadata(ipynb_path)
+        logging.info(f'ipynbからhtmlへ変換')
+        html_result = subprocess.run([jupyter, 'nbconvert', '--to', 'html', ipynb_path], capture_output=True, text=True)
 
-                if html_result.returncode == 0:
-                    logging.info(f'Successfully converted: {file_path} to HTML')
-                    logging.info(f'Conversion stdout: {html_result.stdout}')
-                else:
-                    logging.error(f'Conversion failed: {file_path} to HTML')
-                    logging.error(f'Conversion stdout: {html_result.stdout}')
-                    logging.error(f'Conversion stderr: {html_result.stderr}')
-                    continue  # optionally skip this iteration if the conversion failed
+        if html_result.returncode == 0:
+            logging.info(f'Successfully converted: {ipynb_path} to HTML')
+            logging.info(f'Conversion stdout: {html_result.stdout}')
+        else:
+            logging.error(f'Conversion failed: {ipynb_path} to HTML')
+            logging.error(f'Conversion stdout: {html_result.stdout}')
+            logging.error(f'Conversion stderr: {html_result.stderr}')
+            continue  # optionally skip this iteration if the conversion failed
 
-                html_path = ipynb_path.replace('ipynb', 'html')
-                logging.info(f'Created file: {html_path}')
+        html_path = ipynb_path.replace('ipynb', 'html')
+        logging.info(f'Created file: {html_path}')
 
-                edit_html(main_path_, html_path)
-
-                html_list.append(html_path)
+        try:
+            edit_html(html_path)
+            html_list.append(html_path)
+        except Exception as e:
+            logging.exception(f'以下のファイルを編集できませんでした:{html_path}. Error: {str(e)}')
+            continue
 
     logging.info(f'htmlリスト:{html_list}')
     return html_list
@@ -108,13 +107,11 @@ def ipynb_to_html(main_path_, ipynb_list):
 
 
 
-
-
-def ipynb_to_json(main_path_, html_list_):
-    logging.info('---ipynb_to_json---')
+def ipynb_to_json(html_list_):
+    logging.info('------ipynb_to_json------')
 
     for html_path in html_list_:
-        file_path = main_path_ + html_path.replace(".html", ".ipynb")
+        file_path = html_path.replace(".html", ".ipynb")
         try:
             logging.info(f'html file:{html_path}')
             text = jupytext.read(file_path)
@@ -127,7 +124,7 @@ def ipynb_to_json(main_path_, html_list_):
             new_data = {
                 "title": title,
                 "overview": description,
-                "path": '/' + html_path,
+                "path": html_path.replace("/home/ec2-user/data-science-wiki",'').replace(".html",''),
                 "created_at": iso_format
             }
 
@@ -158,14 +155,13 @@ def ipynb_to_json(main_path_, html_list_):
 
 
 def efs_uploader(html_list):
-    logging.info('---efs_uploader---')
+    logging.info('------efs_uploader------')
 
     for html_path in html_list:
         try:
-            source_path = "/home/ec2-user/data-science-wiki/" + html_path
-            destination_path = "/home/ec2-user/efs/article/" + html_path
+            destination_path = html_path.replace('/home/ec2-user/data-science-wiki/', '/home/ec2-user/efs/article/')
             os.makedirs(os.path.dirname(destination_path), exist_ok=True)
-            shutil.move(source_path, destination_path)
+            shutil.move(html_path, destination_path)
             logging.info(f'destination path:{destination_path}')
 
         except FileNotFoundError:

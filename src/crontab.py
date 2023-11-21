@@ -57,11 +57,9 @@ def github_ipynb_retriever():
             if dir_name in file_name:
                 if '.ipynb' in file_name:
                     directory_path = f'{home_path}/data-science-wiki/{file_name}'
-                    print(directory_path)
                     ipynb_path_list_.append(directory_path)
 
     logging.info(f'ipynbのファイル数:{len(ipynb_path_list_)}')
-    print(ipynb_path_list_)
     return ipynb_path_list_
 
 
@@ -69,6 +67,6 @@ if __name__ == "__main__":
     home_path = os.environ['HOME']
     main_path = f'{home_path}/data-science-wiki/'
     ipynb_path_list = github_ipynb_retriever()
-    html_list = ipynb_to_html(main_path, ipynb_list)
-    ipynb_to_json(main_path, html_list)
+    html_list = ipynb_to_html(ipynb_path_list)
+    ipynb_to_json(html_list)
     efs_uploader(html_list)

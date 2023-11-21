@@ -2,6 +2,12 @@ import logging
 import glob
 import os
 
+from make_html import (
+    ipynb_to_html,
+    ipynb_to_json,
+    efs_uploader
+    )
+
 home_path = os.environ['HOME']
 main_path = f'{home_path}/data-science-wiki/'
 
@@ -40,6 +46,8 @@ def ipynb_retriever():
 
 
 
-
 if __name__ == "__main__":
     ipynb_path_list = ipynb_retriever()
+    html_list = ipynb_to_html(ipynb_path_list)
+    ipynb_to_json(html_list)
+    efs_uploader(html_list)

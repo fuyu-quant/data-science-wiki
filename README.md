@@ -24,7 +24,7 @@ Data Science wikiに追加して欲しい項目やOSSがある場合は[ここ�
 * 現在アップロードされているファイルの数
 
 <div align="center">
-<img src="images/file_count.png" alt="ファイル数" width="350">
+<img src="images/file_count.png" alt="ファイル数" width="400">
 </div>
 
 * Sponsorsについて\

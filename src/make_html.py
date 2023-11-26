@@ -54,7 +54,7 @@ def edit_html(html_path_):
     # タイトルタグ
     soup = BeautifulSoup(updated_html_content, 'html.parser')
     title_tag = soup.find('title')
-    title_tag.string = f"{title} | データサイエンスのまとめサイト,200件以上の手法を紹介"
+    title_tag.string = f"{title} | AI・データサイエンスのまとめサイト,200件以上の手法を紹介,data science wiki"
 
     # Descriptionタグ
     new_meta_tag = soup.new_tag('meta', attrs={"name": "description", "content": f"{description}"})

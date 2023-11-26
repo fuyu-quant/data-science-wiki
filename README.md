@@ -1,14 +1,14 @@
-# Data Science Wiki
+# Data Science wiki
 
-![ロゴ1](images/logo1.png)
+![ロゴ1](images/ds_wiki.png)
 
-[Data Science Wiki](https://www.data-science-wiki.net/)で公開されているコードが保存されているリポジトリです．
+[Data Science wiki](https://www.data-science-wiki.net/)で公開されているコードが保存されているリポジトリです．
 
-* Data Science Wikiとは\
-Data Science WikiとはデータサイエンスやAI関連の技術をより身近に使えるようにするためのまとめサイトになります．最先端の研究成果や技術，OSSを紹介することでより広く社会で使ってもらい，ビジネスと研究を近づけるきっかけ作りを目指しています．
+* Data Science wikiとは\
+Data Science wikiとはデータサイエンスやAI関連の技術をより身近に使えるようにするためのまとめサイトになります．最先端の研究成果や技術，OSSを紹介することでより広く社会で使ってもらい，ビジネスと研究を近づけるきっかけ作りを目指しています．
 
 * [Data Science wiki GPTs](https://chat.openai.com/g/g-w0APV35yz-data-science-wiki-gpts)\
-Data Science Wikiの掲載してある技術をもとに回答してくれるChatGPT
+Data Science wikiの掲載してある技術をもとに回答してくれるChatGPT
 
 <div align="center">
 <img src="images/gpts.jpeg" alt="Data Science Wiki GPTs" width="50">
@@ -28,4 +28,4 @@ Data Science wikiに追加して欲しい項目やOSSがある場合は[ここ�
 </div>
 
 * Sponsorsについて\
-Data Science Wikiでは現在スポンサーを募集しています．AWSのコスト費や活動費として使いたいと考えています．プロジェクトに興味がある方はぜひご検討のほどよろしくお願いします．
+Data Science wikiでは現在スポンサーを募集しています．AWSのコスト費や活動費として使いたいと考えています．プロジェクトに興味がある方はぜひご検討のほどよろしくお願いします．

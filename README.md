@@ -1,8 +1,8 @@
-# Data Science Wiki
+# Data Science wiki
 
-![ロゴ1](images/logo1.png)
+![ロゴ1](images/ds_wiki.png)
 
-[Data Science Wiki](https://www.data-science-wiki.net/)で公開されているコードが保存されているリポジトリです．
+[Data Science wiki](https://www.data-science-wiki.net/)で公開されているコードが保存されているリポジトリです．
 
 * Data Science Wikiとは\
 Data Science WikiとはデータサイエンスやAI関連の技術をより身近に使えるようにするためのまとめサイトになります．最先端の研究成果や技術，OSSを紹介することでより広く社会で使ってもらい，ビジネスと研究を近づけるきっかけ作りを目指しています．
